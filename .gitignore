@@ -1,0 +1,20 @@
+# Fichiers produits par la compilation : jamais dans le dépôt
+*.o
+*.exe
+*.out
+test_ex1
+test_ex2
+test_ex3
+demo_matrices
+
+# Fichiers produits en lançant les tests et la démonstration
+test_ex2_sortie.txt
+R.txt
+R2.txt
+
+# Dossiers d'éditeur et de système
+.vscode/
+.idea/
+__MACOSX/
+.DS_Store
+Thumbs.db
