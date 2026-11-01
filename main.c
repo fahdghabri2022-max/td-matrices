@@ -77,29 +77,35 @@ int main(int argc, char *argv[])
     if (charger(argv[2], &a) != MAT_OK || charger(argv[3], &b) != MAT_OK)
         goto nettoyage;
 
-    /* (4.a) À COMPLÉTER : afficher A et B avec mat_afficher.          */
+    /* (4.a) Afficher A et B (sur stdout, pour la mise au point). */
+    mat_afficher("A", &a);
+    mat_afficher("B", &b);
 
+    /* (4.b) Calculer r. La bibliothèque n'affiche rien : c'est ici
+     *       qu'on écrit le message, avec les dimensions de A et de B.
+     *       En cas d'erreur, r est resté vide (R3) : on saute au
+     *       nettoyage, statut vaut encore EXIT_FAILURE. */
+    MatErreur err = addition ? mat_additionner(&a, &b, &r)
+                             : mat_multiplier(&a, &b, &r);
+    if (err != MAT_OK) {
+        fprintf(stderr, "Erreur : calcul impossible : %s ",
+                mat_message_erreur(err));
+        fprintf(stderr, "(A : %d x %d, B : %d x %d)\n",
+                a.nb_lignes, a.nb_colonnes, b.nb_lignes, b.nb_colonnes);
+        goto nettoyage;
+    }
 
-    /* (4.b) À COMPLÉTER : calculer r.
-     *         MatErreur err = addition ? mat_additionner(&a, &b, &r)
-     *                                  : mat_multiplier(&a, &b, &r);
-     *       Si err != MAT_OK : afficher sur stderr un message utilisant
-     *       mat_message_erreur(err) et les dimensions de A et de B,
-     *       puis : goto nettoyage;                                    */
-
-    (void)addition;   /* ligne provisoire : à supprimer en (4.b) */
-
-    /* (4.c) À COMPLÉTER : afficher r (nom "R = A + B" ou "R = A x B").  */
-
+    /* (4.c) Afficher le résultat, avec un nom qui rappelle l'opération. */
+    mat_afficher(addition ? "R = A + B" : "R = A x B", &r);
 
     /* FOURNI : enregistrement de r dans le fichier argv[4]. */
     if (sauvegarder(argv[4], &r) != MAT_OK)
         goto nettoyage;
 
-    /* (4.d) À COMPLÉTER : tout a réussi :
-     *         - afficher "Résultat enregistré dans \"...\"." ;
-     *         - statut = EXIT_SUCCESS;                                 */
-
+    /* (4.d) Tout a réussi : on le signale, et seulement maintenant le
+     *       statut passe à EXIT_SUCCESS. */
+    printf("Résultat enregistré dans \"%s\".\n", argv[4]);
+    statut = EXIT_SUCCESS;
 
 nettoyage:
     /* FOURNI : point de sortie unique. Chaque matrice est détruite
