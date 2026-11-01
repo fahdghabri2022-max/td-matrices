@@ -924,9 +924,7 @@ $ cat R2.txt
 
 ### Ce que nous avons compris
 
-<!-- Brouillon proposé par Claude : à relire et à reformuler avec vos propres mots. -->
-
-Le point central du TD est la propriété de la mémoire : à tout instant, chaque bloc a un seul propriétaire, et chaque fonction dit dans son contrat ce qu'elle laisse derrière elle, en cas de succès comme d'échec. Une fois cette règle posée, le nettoyage devient mécanique : remettre la sortie à vide dès le début, construire dans une variable locale, ne transférer qu'à la fin, détruire en un seul point de sortie. Un test qui affiche `[OK]` ne prouve pas l'absence de fuite : seul valgrind la révèle, et c'est sur les chemins d'erreur qu'il faut le lancer.
+Dans ce TD, la notion clé est la gestion stricte de la propriété mémoire. Chaque fonction doit définir clairement qui possède un bloc alloué et s'assurer qu'aucune fuite n'apparaît, aussi bien lors d'une exécution normale qu'en cas d'erreur. Pour garantir cela, nous avons systématiquement initialisé nos structures à vide au début, travaillé sur des variables locales temporaires, et centralisé la libération de la mémoire sur un seul point de sortie. Enfin, nous avons appris qu'un programme de test peut valider l'exactitude du code sans détecter les fuites : l'utilisation systématique de Valgrind sur l'ensemble des scénarios est indispensable pour s'assurer que la mémoire est totalement libérée.
 
 ### Difficultés rencontrées et solutions
 
