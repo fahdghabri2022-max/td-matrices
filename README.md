@@ -1,18 +1,11 @@
 # TD Matrices — Stockage de matrices en C
 
-<!--
-À FAIRE AVANT LE RENDU (ce commentaire n'apparaît pas sur GitHub) :
-1. Remplacer « À compléter », « NOM Prénom » et « identifiant » dans l'en-tête et dans « Répartition du travail ».
-2. Relire « Ce que nous avons compris » (partie 7) et le reformuler avec vos mots.
-3. Compléter « Aides extérieures » si vous avez utilisé d'autres aides.
--->
-
 - **TD** : Stockage de matrices en C — Programmation C, 3e année STI, INSA Centre Val de Loire
-- **Groupe de TD** : À compléter
+- **Groupe de TD** : TD1 
 - **Date de remise** : 2 novembre 2026
 - **Membres** :
-  - NOM Prénom — GitHub : identifiant
-  - NOM Prénom — GitHub : identifiant
+  - Ben Makhlouf Ahmed: ahmed21235
+  - GHABRI Fahd — GitHub : fahdghabri2022-max
 
 ## Table des matières
 
@@ -945,13 +938,12 @@ Le point central du TD est la propriété de la mémoire : à tout instant, chaq
 
 ### Répartition du travail
 
-- **NOM Prénom** : exercices 1 à 3 (`matrice.c`, `matrice_alloc.c`, `matrice_io.c`, `matrice_calcul.c`) et leurs tests.
-- **NOM Prénom** : exercice 4 (`main.c`), `Makefile`, `.gitignore`, dépôt GitHub et rédaction du compte rendu.
+- BEN MAKHLOUF Ahmed : exercices 1 à 3 (`matrice.c`, `matrice_alloc.c`, `matrice_io.c`, `matrice_calcul.c`) et leurs tests.
+- GHABRI Fahd : exercice 4 (`main.c`), `Makefile`, `.gitignore`, dépôt GitHub et rédaction du compte rendu.
 
 ### Aides extérieures
 
 - Claude (assistant d'IA d'Anthropic) : explication de la procédure de rendu (Git, tag, Célène, `verification.yml`) ; complétion de `main.c` (étapes 4.a à 4.d, d'après le code donné par le sujet) ; écriture du `Makefile` et du `.gitignore` ; retrait des commentaires « ligne provisoire » restants ; exécution sous Linux des tests, de valgrind et des scénarios reproduits ici ; programmes d'essai des expériences citées ; rédaction d'une première version de ce compte rendu à partir de notre code (conception, réponses aux 15 questions, démonstration, bilan).
-- À compléter (autres aides éventuelles).
 
 ## Annexes
 
